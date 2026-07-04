@@ -8,16 +8,25 @@ interface Props {
   title: string;
   description: string;
   tags: string[];
+  core?: boolean;
+  class?: string;
 }
-const { icon, title, description, tags } = Astro.props;
+const { icon, title, description, tags, core = false, class: className = '' } = Astro.props;
 ---
 
-<Card class="service-card">
-  <div class="bg-copper/10 text-copper mb-4 flex h-11 w-11 items-center justify-center rounded-xl">
-    <Icon path={icon} size={22} />
+<Card class:list={['service-card', className]} padding={core ? 'lg' : 'sm'} emphasized={core}>
+  <div
+    class:list={[
+      'bg-copper/10 text-copper mb-4 flex items-center justify-center rounded-xl',
+      core ? 'h-14 w-14' : 'h-11 w-11',
+    ]}
+  >
+    <Icon path={icon} size={core ? 28 : 22} />
   </div>
-  <h3 class="mb-2 text-lg font-semibold">{title}</h3>
-  <p class="text-titanium mb-4 text-[0.95rem] leading-relaxed">{description}</p>
+  <h3 class:list={['mb-2 font-semibold', core ? 'text-xl' : 'text-lg']}>{title}</h3>
+  <p class:list={['text-titanium mb-4 leading-relaxed', core ? 'text-base' : 'text-[0.95rem]']}>
+    {description}
+  </p>
   <div class="flex flex-wrap gap-2">
     {tags.map((tag) => <Badge tone="outline">{tag}</Badge>)}
   </div>

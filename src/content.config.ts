@@ -9,6 +9,7 @@ const services = defineCollection({
     title: z.string(),
     description: z.string(),
     tags: z.array(z.string()),
+    core: z.boolean().default(false), // the RTL2GDSII spine — gets the larger bento cell
   }),
 });
 

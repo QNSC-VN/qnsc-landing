@@ -96,18 +96,37 @@ const advisors = leadership.filter((l) => l.data.group === 'advisor');
         <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.services.title}</h2>
         <p class="text-titanium leading-relaxed">{dict.services.desc}</p>
       </div>
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          services.map((s) => (
-            <ServiceCard
-              icon={s.data.icon}
-              title={s.data.title}
-              description={s.data.description}
-              tags={s.data.tags}
-            />
-          ))
-        }
-      </div>
+      {
+        (() => {
+          const coreServices = services.filter((s) => s.data.core);
+          const otherServices = services.filter((s) => !s.data.core);
+          return (
+            <>
+              <div class="mb-6 grid gap-5 md:grid-cols-3">
+                {coreServices.map((s) => (
+                  <ServiceCard
+                    icon={s.data.icon}
+                    title={s.data.title}
+                    description={s.data.description}
+                    tags={s.data.tags}
+                    core
+                  />
+                ))}
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {otherServices.map((s) => (
+                  <ServiceCard
+                    icon={s.data.icon}
+                    title={s.data.title}
+                    description={s.data.description}
+                    tags={s.data.tags}
+                  />
+                ))}
+              </div>
+            </>
+          );
+        })()
+      }
     </div>
   </section>
 
@@ -150,8 +169,7 @@ const advisors = leadership.filter((l) => l.data.group === 'advisor');
           />
         </div>
         <div class="reveal-right">
-          <span class="section-label">{dict.location.label}</span>
-          <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">
+          <h2 class="mb-4 text-3xl font-semibold text-balance">
             {dict.location.title1}<br /><span class="gradient-text">{dict.location.title2}</span>
           </h2>
           <p class="text-titanium mb-4 leading-relaxed">{dict.location.desc}</p>
@@ -182,8 +200,7 @@ const advisors = leadership.filter((l) => l.data.group === 'advisor');
   <section class="bg-white/[0.015] py-24" id="leadership">
     <div class="mx-auto max-w-[1200px] px-6">
       <div class="reveal mb-14 max-w-2xl">
-        <span class="section-label">{dict.people.label}</span>
-        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.people.title}</h2>
+        <h2 class="mb-4 text-3xl font-semibold text-balance">{dict.people.title}</h2>
         <p class="text-titanium leading-relaxed">{dict.people.desc}</p>
       </div>
 
@@ -246,8 +263,7 @@ const advisors = leadership.filter((l) => l.data.group === 'advisor');
   <section class="py-24" id="team">
     <div class="mx-auto max-w-[1200px] px-6">
       <div class="reveal mb-14 max-w-2xl">
-        <span class="section-label">{dict.team.label}</span>
-        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.team.title}</h2>
+        <h2 class="mb-4 text-3xl font-semibold text-balance">{dict.team.title}</h2>
         <p class="text-titanium leading-relaxed">{dict.team.desc}</p>
       </div>
       <div class="reveal grid gap-6 md:grid-cols-2">
@@ -284,8 +300,7 @@ const advisors = leadership.filter((l) => l.data.group === 'advisor');
   <!-- CAREERS -->
   <section class="bg-white/[0.015] py-24" id="careers">
     <div class="reveal mx-auto max-w-[1200px] px-6 text-center">
-      <span class="section-label">{dict.careers.label}</span>
-      <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">
+      <h2 class="mb-4 text-3xl font-semibold text-balance">
         {dict.careers.title1}<br /><span class="gradient-text">{dict.careers.title2}</span>
       </h2>
       <p class="text-titanium mx-auto mb-12 max-w-2xl leading-relaxed">{dict.careers.desc}</p>
@@ -320,8 +335,7 @@ const advisors = leadership.filter((l) => l.data.group === 'advisor');
   <section class="py-24" id="contact">
     <div class="mx-auto max-w-[1200px] px-6">
       <div class="reveal mb-14 max-w-2xl">
-        <span class="section-label">{dict.contact.label}</span>
-        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.contact.title}</h2>
+        <h2 class="mb-4 text-3xl font-semibold text-balance">{dict.contact.title}</h2>
         <p class="text-titanium leading-relaxed">{dict.contact.desc}</p>
       </div>
       <div class="grid gap-12 md:grid-cols-[1fr_1.4fr]">

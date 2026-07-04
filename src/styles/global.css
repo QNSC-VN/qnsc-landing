@@ -1,5 +1,18 @@
 @import 'tailwindcss';
 
+/* Self-hosted via @fontsource — no CDN font links, no fallback to whatever
+   the OS ships. Space Grotesk (technical/geometric) for headings, IBM Plex
+   Sans (engineering pedigree, highly readable) for body — deliberately not
+   Inter, which was previously referenced but never actually loaded. */
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
 /* ── QNSC "Silicon Ocean" tokens — ported verbatim from legacy styles.css ── */
 @theme {
   --color-deep-navy: #0b1020;
@@ -12,8 +25,8 @@
   --color-muted-gray: #6b7280;
   --color-warning-amber: #e0a458;
 
-  --font-heading: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --radius-qn-sm: 8px;
@@ -30,6 +43,13 @@
     color: var(--color-silicon-white);
     font-family: var(--font-body);
     line-height: 1.7;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
   }
 }
 

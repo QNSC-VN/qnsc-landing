@@ -16,7 +16,7 @@ export const en = {
     tagline: 'A Fabless Chip Design Center',
     title1: 'Design Service Today.',
     title2: 'Vietnamese Chips Tomorrow.',
-    desc: "QNSC — Quy Nhon Semiconductor — is a technology-driven fabless semiconductor design center with real in-house expertise in front-end and back-end chip design, ASIC development, verification, and physical design. Backed by decades of global engineering experience, QNSC focuses on AI infrastructure, high-performance computing, and advanced semiconductor innovation to help strengthen Vietnam's domestic technology and chip design capabilities through real execution, engineering, and technology transfer.",
+    desc: 'A fabless semiconductor design center with real in-house expertise across the full chip design lifecycle, from architecture to physical design.',
     btnExplore: 'Explore Our Services',
     btnProducts: 'See Our Products',
   },
@@ -24,7 +24,7 @@ export const en = {
   services: {
     label: 'Stream A · Design Services',
     title: 'End-to-End IC Design Capability',
-    desc: 'Front-end through back-end IC design outsourcing for international fabless customers. End-to-end ownership from Specs → Architecture → RTL → Verification → FPGA → GDSII → Bring-up → System, backed by senior silicon architects with 25–30+ years across global semiconductor leaders.',
+    desc: 'Front-end through back-end IC design outsourcing for international fabless customers. End-to-end ownership from Specs → Architecture → RTL → Verification → FPGA → GDSII → Bring-up → System, backed by senior silicon architects with 25–30+ years across global semiconductor leaders. Our focus areas include AI infrastructure and high-performance computing, backed by decades of global engineering experience driving real technology transfer into Vietnam.',
   },
   products: {
     label: 'Stream B',

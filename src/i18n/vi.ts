@@ -18,7 +18,7 @@ export const vi: Dictionary = {
     tagline: 'Trung tâm thiết kế chip Fabless',
     title1: 'Dịch vụ thiết kế hôm nay.',
     title2: 'Chip Việt Nam ngày mai.',
-    desc: 'QNSC — Quy Nhon Semiconductor — là trung tâm thiết kế bán dẫn fabless với năng lực nội bộ thực thụ về thiết kế chip front-end và back-end, phát triển ASIC, kiểm chứng (verification) và thiết kế vật lý. Được hậu thuẫn bởi hàng chục năm kinh nghiệm kỹ thuật toàn cầu, QNSC tập trung vào hạ tầng AI, điện toán hiệu năng cao và đổi mới bán dẫn tiên tiến nhằm góp phần nâng cao năng lực công nghệ và thiết kế chip nội địa của Việt Nam thông qua thực thi, kỹ thuật và chuyển giao công nghệ thực chất.',
+    desc: 'Trung tâm thiết kế bán dẫn fabless với năng lực nội bộ thực thụ, bao phủ toàn trình từ kiến trúc đến thiết kế vật lý.',
     btnExplore: 'Khám phá dịch vụ',
     btnProducts: 'Xem sản phẩm',
   },
@@ -26,7 +26,7 @@ export const vi: Dictionary = {
   services: {
     label: 'Nhóm A · Dịch vụ thiết kế',
     title: 'Năng lực thiết kế IC toàn trình',
-    desc: 'Gia công thiết kế IC front-end đến back-end cho khách hàng fabless quốc tế. Sở hữu toàn trình từ Đặc tả → Kiến trúc → RTL → Kiểm chứng → FPGA → GDSII → Bring-up → Hệ thống, dẫn dắt bởi các kiến trúc sư silicon cấp cao với 25–30+ năm kinh nghiệm tại các tập đoàn bán dẫn hàng đầu thế giới.',
+    desc: 'Gia công thiết kế IC front-end đến back-end cho khách hàng fabless quốc tế. Sở hữu toàn trình từ Đặc tả → Kiến trúc → RTL → Kiểm chứng → FPGA → GDSII → Bring-up → Hệ thống, dẫn dắt bởi các kiến trúc sư silicon cấp cao với 25–30+ năm kinh nghiệm tại các tập đoàn bán dẫn hàng đầu thế giới. Các lĩnh vực trọng tâm gồm hạ tầng AI và điện toán hiệu năng cao, được hậu thuẫn bởi hàng chục năm kinh nghiệm kỹ thuật toàn cầu, thúc đẩy chuyển giao công nghệ thực chất vào Việt Nam.',
   },
   products: {
     label: 'Nhóm B',

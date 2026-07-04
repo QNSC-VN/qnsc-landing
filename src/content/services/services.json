@@ -11,14 +11,16 @@
     "icon": "M16 18l6-6-6-6M8 6l-6 6 6 6",
     "title": "RTL Design",
     "description": "Verilog and SystemVerilog RTL coding, IP integration, and subsystem/SoC assembly. ARM & RISC-V control planes, custom AI/DSP accelerators, memory subsystems (DDR/LPDDR/HBM), and high-speed interconnects (PCIe, USB, MIPI, Ethernet).",
-    "tags": ["SystemVerilog", "ARM", "RISC-V", "SoC Assembly"]
+    "tags": ["SystemVerilog", "ARM", "RISC-V", "SoC Assembly"],
+    "core": true
   },
   {
     "id": "verification",
     "icon": "M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z",
     "title": "Verification & Validation",
     "description": "SoC-level UVM verification with closed-loop Metric-Driven Verification (MDV), formal methods, and emulation-friendly flows. Proven first-silicon success across AI, automotive, communications, and storage SoCs.",
-    "tags": ["UVM", "Formal", "MDV", "Emulation"]
+    "tags": ["UVM", "Formal", "MDV", "Emulation"],
+    "core": true
   },
   {
     "id": "fpga",
@@ -32,7 +34,8 @@
     "icon": "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z",
     "title": "Physical Design & Sign-off (RTL2GDSII)",
     "description": "Full RTL2GDSII ownership at advanced nodes — TSMC 16/12/5nm and Samsung 5/4nm. Synthesis, DFT, P&R, MMMC STA, SI/PI, IR-drop, DRC/LVS, parasitic extraction through GDSII foundry handoff. IP hardening for ARM, RISC-V, LPDDR, and 3rd-party IPs.",
-    "tags": ["4nm", "5nm", "12nm", "DFT", "GDSII"]
+    "tags": ["4nm", "5nm", "12nm", "DFT", "GDSII"],
+    "core": true
   },
   {
     "id": "foundry-transitions",
