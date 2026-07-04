@@ -1,0 +1,46 @@
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+  if (prefersReducedMotion) {
+    reveals.forEach((el) => el.classList.add('visible'));
+  } else if (reveals.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
+    );
+    reveals.forEach((el) => observer.observe(el));
+  }
+</script>
+
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+      opacity: 0;
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+    .reveal {
+      transform: translateY(24px);
+    }
+    .reveal-left {
+      transform: translateX(-24px);
+    }
+    .reveal-right {
+      transform: translateX(24px);
+    }
+    .reveal.visible,
+    .reveal-left.visible,
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+</style>

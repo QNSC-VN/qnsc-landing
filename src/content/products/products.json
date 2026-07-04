@@ -1,0 +1,47 @@
+[
+  {
+    "id": "mcu",
+    "tag": "MCU",
+    "tagColor": "default",
+    "featured": false,
+    "title": "Microcontroller",
+    "description": "General-purpose MCU for industrial control, home appliances, and entry-level automotive applications.",
+    "specs": [
+      { "key": "Core", "value": "ARM Cortex-M0 / M3 / M4" },
+      { "key": "Process", "value": "40–90 nm" },
+      { "key": "Peripherals", "value": "GPIO, UART, SPI, I²C, ADC" },
+      { "key": "Memory", "value": "Embedded Flash + SRAM" }
+    ],
+    "market": "Market: Industrial control, home appliances"
+  },
+  {
+    "id": "iot",
+    "tag": "IoT",
+    "tagColor": "teal",
+    "featured": true,
+    "title": "IoT Chip",
+    "description": "Ultra-low-power SoC with integrated connectivity for smart edge devices.",
+    "specs": [
+      { "key": "Core", "value": "ARM Cortex-M + RF subsystem" },
+      { "key": "Process", "value": "28–55 nm (low-power)" },
+      { "key": "Connectivity", "value": "BLE, Wi-Fi, LoRa (TBD)" },
+      { "key": "Power", "value": "Ultra-low standby, energy harvesting" }
+    ],
+    "market": "Market: Smart home, agritech, asset tracking"
+  },
+  {
+    "id": "secure-element",
+    "tag": "SE",
+    "tagColor": "gold",
+    "featured": false,
+    "title": "Smart Card / Secure Element",
+    "description": "Security-certified chip for smart cards, eSIM, payment, and identity applications.",
+    "specs": [
+      { "key": "Core", "value": "Secure CPU + crypto accelerator" },
+      { "key": "Process", "value": "90–180 nm (security-grade)" },
+      { "key": "Crypto", "value": "AES, RSA, ECC, SHA" },
+      { "key": "Cert. roadmap", "value": "Common Criteria / EMVCo" }
+    ],
+    "market": "Market: Smart cards, eSIM, payment, identity"
+  }
+]

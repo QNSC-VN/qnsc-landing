@@ -1,0 +1,61 @@
+# =============================================================================
+# .gitattributes — qnsc-landing
+# =============================================================================
+# 1. Normalise line endings: always LF in the repo, checkout as-is on Linux/Mac,
+#    convert CRLF→LF on Windows.
+# 2. Mark binary / generated files so git diff is clean and merges don't mangle
+#    them.
+# 3. Linguist overrides so GitHub's language bar reflects the actual codebase.
+# =============================================================================
+
+# ── Default: normalise all text files to LF ──────────────────────────────────
+*           text=auto eol=lf
+
+# ── Explicitly text — always LF ──────────────────────────────────────────────
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.astro     text eol=lf
+*.js        text eol=lf
+*.mjs       text eol=lf
+*.cjs       text eol=lf
+*.json      text eol=lf
+*.jsonc     text eol=lf
+*.yaml      text eol=lf
+*.yml       text eol=lf
+*.toml      text eol=lf
+*.md        text eol=lf
+*.mdx       text eol=lf
+*.html      text eol=lf
+*.css       text eol=lf
+*.sh        text eol=lf
+*.tf        text eol=lf
+*.env       text eol=lf
+*.env.*     text eol=lf
+.gitignore  text eol=lf
+.npmrc      text eol=lf
+.nvmrc      text eol=lf
+
+# ── Binaries — never diff or merge ───────────────────────────────────────────
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.ico       binary
+*.svg       binary
+*.woff      binary
+*.woff2     binary
+*.ttf       binary
+*.otf       binary
+*.eot       binary
+*.pdf       binary
+*.zip       binary
+
+# ── Lock files — show as-is in diffs (no merge driver needed) ─────────────────
+pnpm-lock.yaml          text eol=lf -diff
+
+# ── Linguist: exclude from language stats ─────────────────────────────────────
+pnpm-lock.yaml          linguist-generated=true
+dist/**                 linguist-generated=true
+infra/**/.terraform.lock.hcl linguist-generated=true
+_legacy/**              linguist-vendored=true

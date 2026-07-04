@@ -1,0 +1,77 @@
+---
+import type { Dictionary, Locale } from '../i18n';
+import { localizedPath } from '../i18n';
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+}
+const { dict, locale } = Astro.props;
+const home = localizedPath(locale, '/');
+---
+
+<footer class="footer border-t border-white/10 pt-16 pb-8">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="grid gap-10 pb-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
+      <div>
+        <a href={home} class="mb-4 inline-flex items-center" aria-label="QNSC — Semiconductor home">
+          <img
+            class="h-12 w-auto"
+            src="/assets/brand/qnsc-horizontal-on-dark.svg"
+            alt="QNSC — Semiconductor"
+            width="150"
+            height="53"
+          />
+        </a>
+        <p class="text-titanium max-w-sm">{dict.footer.desc}</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">{dict.footer.servicesHeading}</h4>
+        <ul class="mt-3 space-y-2">
+          <li><a href={`${home}#services`} class="footer-link">RTL Design</a></li>
+          <li><a href={`${home}#services`} class="footer-link">Verification</a></li>
+          <li><a href={`${home}#services`} class="footer-link">FPGA Prototyping</a></li>
+          <li><a href={`${home}#services`} class="footer-link">Physical Design</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">{dict.footer.companyHeading}</h4>
+        <ul class="mt-3 space-y-2">
+          <li><a href={`${home}#products`} class="footer-link">{dict.nav.products}</a></li>
+          <li><a href={`${home}#leadership`} class="footer-link">{dict.nav.leadership}</a></li>
+          <li><a href={`${home}#careers`} class="footer-link">{dict.nav.careers}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">{dict.footer.connectHeading}</h4>
+        <ul class="mt-3 space-y-2">
+          <li><a href={`${home}#contact`} class="footer-link">{dict.nav.contact}</a></li>
+          <li><a href="mailto:contact@qnsc.vn" class="footer-link">contact@qnsc.vn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="text-muted-gray flex flex-col justify-between gap-2 border-t border-white/10 pt-6 text-sm md:flex-row"
+    >
+      <span>{dict.footer.copyright}</span>
+      <span>{dict.contact.addrValue}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-heading {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-titanium);
+  }
+  .footer-link {
+    color: var(--color-muted-gray);
+    font-size: 0.92rem;
+  }
+  .footer-link:hover {
+    color: var(--color-silicon-white);
+  }
+</style>

@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+/* ── QNSC "Silicon Ocean" tokens — ported verbatim from legacy styles.css ── */
+@theme {
+  --color-deep-navy: #0b1020;
+  --color-midnight-blue: #12182b;
+  --color-dark-surface: #1c1f26;
+  --color-copper: #b4432f;
+  --color-clay: #d9694f;
+  --color-silicon-white: #f3f5f7;
+  --color-titanium: #b7bdc7;
+  --color-muted-gray: #6b7280;
+  --color-warning-amber: #e0a458;
+
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-qn-sm: 8px;
+  --radius-qn-md: 16px;
+  --radius-qn-lg: 24px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-deep-navy);
+    color: var(--color-silicon-white);
+    font-family: var(--font-body);
+    line-height: 1.7;
+  }
+}
+
+@utility gradient-text {
+  background: linear-gradient(90deg, var(--color-copper) 0%, var(--color-clay) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility gradient-accent-bg {
+  background: linear-gradient(90deg, var(--color-copper) 0%, var(--color-clay) 100%);
+}

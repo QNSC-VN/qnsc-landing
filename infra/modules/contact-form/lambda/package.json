@@ -1,0 +1,8 @@
+{
+  "name": "qnsc-contact-form-lambda",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.700.0"
+  }
+}

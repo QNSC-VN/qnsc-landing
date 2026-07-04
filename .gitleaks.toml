@@ -1,0 +1,9 @@
+title = "qnsc-landing gitleaks config"
+
+[allowlist]
+description = "Known false-positives in placeholder/example values"
+
+# .env.example ships a fake Lambda Function URL placeholder, never a real secret.
+paths = [
+  '''\.env\.example''',
+]

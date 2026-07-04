@@ -1,0 +1,3 @@
+# Per-fingerprint gitleaks allowlist. Format: <commit>:<file>:<rule>:<line>
+# Populated as needed when a specific finding is confirmed to be a false positive
+# that .gitleaks.toml's path/regex allowlist doesn't already cover.

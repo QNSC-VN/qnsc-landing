@@ -1,0 +1,150 @@
+---
+import type { Dictionary } from '../i18n';
+
+interface Props {
+  dict: Dictionary;
+}
+const { dict } = Astro.props;
+const f = dict.contact.form;
+---
+
+<form
+  class="contact-form reveal space-y-5"
+  id="contact-form"
+  data-endpoint={import.meta.env.PUBLIC_CONTACT_FORM_URL ?? ''}
+>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label for="name" class="form-label">{f.name}</label>
+      <input type="text" id="name" name="name" placeholder={f.namePh} class="form-input" required />
+    </div>
+    <div>
+      <label for="company" class="form-label">{f.company}</label>
+      <input type="text" id="company" name="company" placeholder={f.companyPh} class="form-input" />
+    </div>
+  </div>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label for="email" class="form-label">{f.email}</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder={f.emailPh}
+        class="form-input"
+        required
+      />
+    </div>
+    <div>
+      <label for="service" class="form-label">{f.interest}</label>
+      <select id="service" name="service" class="form-input">
+        {f.interestOpts.map((opt, i) => <option value={i === 0 ? '' : opt}>{opt}</option>)}
+      </select>
+    </div>
+  </div>
+  <div>
+    <label for="message" class="form-label">{f.message}</label>
+    <textarea id="message" name="message" placeholder={f.messagePh} rows="4" class="form-input"
+    ></textarea>
+  </div>
+  <p class="form-status hidden text-sm" role="status" aria-live="polite"></p>
+  <button type="submit" class="submit-btn w-full justify-center">
+    <span id="submit-btn-text">{f.submit}</span>
+  </button>
+</form>
+
+<style>
+  .form-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-titanium);
+    margin-bottom: 6px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-silicon-white);
+    font-size: 0.95rem;
+  }
+  .form-input:focus {
+    outline: 2px solid var(--color-copper);
+    outline-offset: 1px;
+    border-color: transparent;
+  }
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-copper) 0%, var(--color-clay) 100%);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+  .submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  .form-status.ok {
+    color: #5fae85;
+  }
+  .form-status.err {
+    color: #e07272;
+  }
+</style>
+
+<script
+  is:inline
+  define:vars={{
+    sendingText: f.sending,
+    sentText: f.sent,
+    errorText: f.error,
+    submitText: f.submit,
+  }}
+>
+  const form = document.getElementById('contact-form');
+  const status = form?.querySelector('.form-status');
+  const btnText = document.getElementById('submit-btn-text');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const endpoint = form.dataset.endpoint;
+    const btn = form.querySelector('button[type="submit"]');
+    if (!btn || !btnText || !status) return;
+
+    btn.disabled = true;
+    btnText.textContent = sendingText;
+    status.classList.add('hidden');
+
+    try {
+      if (!endpoint) throw new Error('missing endpoint');
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      if (!res.ok) throw new Error(`status ${res.status}`);
+
+      btnText.textContent = sentText;
+      status.textContent = sentText;
+      status.classList.remove('hidden', 'err');
+      status.classList.add('ok');
+      form.reset();
+    } catch {
+      btnText.textContent = submitText;
+      status.textContent = errorText;
+      status.classList.remove('hidden', 'ok');
+      status.classList.add('err');
+    } finally {
+      btn.disabled = false;
+      setTimeout(() => {
+        btnText.textContent = submitText;
+      }, 3000);
+    }
+  });
+</script>

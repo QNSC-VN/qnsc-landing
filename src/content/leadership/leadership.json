@@ -1,0 +1,110 @@
+[
+  {
+    "id": "quan-vu",
+    "group": "leadership",
+    "name": "Vũ Hồng Quân",
+    "role": "Chairman & Co-Founder",
+    "photo": "quan-vu-sq.jpg",
+    "bio": "Vietnamese industrial entrepreneur and technology investor. Chairman & Co-Founder of QNSC and founder/chairman of multiple industrial companies across construction materials, mining, manufacturing, and Vietnam–Japan export ventures — including TAKUMINO Co. (JV with Japan's OKUNO Trading), My Quang JSC, and An Vien An Loc Phat Investment. Actively involved in semiconductor, AI, advanced manufacturing, and technology commercialization initiatives in Vietnam.",
+    "highlights": [
+      "Board Member, PISICO Bình Định Corporation",
+      "Vice Chairman, Vietnam Young Entrepreneurs Association (Central)",
+      "Chairman, Young Entrepreneurs Association of Gia Lai Province",
+      "Member, Central Committee of the Vietnam Fatherland Front (2024–2029)",
+      "BBA, Auckland University of Technology (AUT), New Zealand"
+    ],
+    "featured": true
+  },
+  {
+    "id": "quang-le",
+    "group": "leadership",
+    "name": "Quang Lê",
+    "role": "CEO & Co-Founder",
+    "initials": "QL",
+    "bio": "Founding CEO of QNSC. 15+ years of P&L leadership across large engineering organizations in the US, EU, and Asia-Pacific. Deep expertise in AI-augmented engineering management — shaping engineering strategy, aligning delivery with customer business outcomes, and integrating AI across the full engineering lifecycle at scale — directly applicable to modern AI-accelerated chip design flows.",
+    "highlights": [
+      "AI adoption strategy across full engineering lifecycle",
+      "Built next-generation leadership programs aligned with business strategy",
+      "PMI Agile Certified Practitioner (PMI-ACP) · Professional Scrum Master I & II",
+      "MSc Business Administration (Leadership & Management), Deakin University, Australia",
+      "MSc Information System (Data & Analytics), Deakin University"
+    ],
+    "featured": false
+  },
+  {
+    "id": "thao-nguyen",
+    "group": "advisor-lead",
+    "name": "Nguyễn An Thạo",
+    "nameEn": "Thao An Nguyen",
+    "role": "Semiconductor · AI Infrastructure · Hardware at Hyperscale",
+    "photo": "thao-nguyen-sq.jpg",
+    "bio": "Thao Nguyen is a Vietnamese-American technology entrepreneur with 40 years of leadership experience in semiconductor design, data center infrastructure, and large-scale system architecture. He began his career as a VLSI chip designer at IBM in 1985 and later played a key role at Facebook through the Open Compute Project, contributing to the design and deployment of millions of servers for hyperscale data centers worldwide. Today, he leads memory-centric AI infrastructure innovation as Founder & CEO of TORmem Inc. (USA).",
+    "bioMission": "As an overseas Vietnamese, Thao is passionate about helping Vietnam grow its high-tech and semiconductor industry by transferring real-world knowledge, engineering expertise, and global industry experience to the next generation of Vietnamese engineers and technology leaders.",
+    "stats": [
+      { "num": "40", "unit": "yr", "label": "Silicon & Hardware Leadership" },
+      { "num": "8", "unit": "+", "label": "US Patents Held" },
+      { "num": "M", "unit": "+", "label": "Servers Deployed (Open Compute)" },
+      { "num": "1985", "label": "IBM VLSI · Career Start" }
+    ],
+    "credLine": "Career: IBM (VLSI design) · Facebook/Meta (Open Compute) · NetApp · Equinix · Founder & CEO, TORmem Inc.\nExpertise: PCIe Gen7, RDMA, CXL, AI hardware, ASIC design, memory-disaggregated architectures\nEducation: BSEE, MSEE · CTO Program, Cornell University, USA",
+    "featured": true
+  },
+  {
+    "id": "jafar-safdar",
+    "group": "advisor",
+    "name": "Jafar Safdar",
+    "role": "Chip Design & Operations",
+    "photo": "jafar-safdar-sq.jpg",
+    "highlights": [
+      "31+ years in semiconductor industry across product, sales, application engineering",
+      "Founded/co-founded 3 chip design startups; raised $12M+ funding",
+      "Led physical design tape-outs at TSMC 5/7nm and Samsung 4/5nm with Intel, Qualcomm, Samsung",
+      "Key contributor to Synopsys product line scaling to $400M annual revenue",
+      "MSEE, California State University Northridge, USA"
+    ],
+    "featured": false
+  },
+  {
+    "id": "afzal-khan",
+    "group": "advisor",
+    "name": "Dr. Afzal Khan",
+    "role": "SoC Architecture",
+    "photo": "afzal-khan-sq.jpg",
+    "highlights": [
+      "30+ years Specs-to-System SoC & IP product design",
+      "Deep AI architecture leadership: NPU, GPU, DSP, ISP, secure compute",
+      "Chip Lead on advanced AI Vision Processor SoC (ARM & RISC-V control planes)",
+      "PhD Computer Architecture & Information Security; BS, MSEE Arizona State University"
+    ],
+    "featured": false
+  },
+  {
+    "id": "shahid-rizwan",
+    "group": "advisor",
+    "name": "Shahid Rizwan",
+    "role": "Verification & SoC Strategy",
+    "photo": "shahid-rizwan-sq.jpg",
+    "highlights": [
+      "25+ years in ASIC Design & Verification",
+      "SoC-level verification at Arm (AI SoC), Intel (NoC), Ericsson, Bosch, ST, Toshiba",
+      "UVM, formal, MDV, PCIe/DDR/HBM, safety-critical & automotive SoCs",
+      "MSEE KAIST (Gold Medalist), South Korea"
+    ],
+    "featured": false
+  },
+  {
+    "id": "shahid-mustafa",
+    "group": "advisor",
+    "name": "Shahid Mustafa",
+    "role": "Finance & Corporate Strategy",
+    "photo": "shahid-mustafa-sq.jpg",
+    "highlights": [
+      "29+ years in banking, fintech & digital finance leadership",
+      "Co-founder Telenor Microfinance Bank; co-creator of easypaisa (Pakistan's largest fintech)",
+      "Secured 45% strategic investment from ANT Financial; scaled business 10× post-deal",
+      "Founding CEO, Pakistan Microfinance Investment Company",
+      "MBA LUMS · BSEE UET Lahore"
+    ],
+    "featured": false
+  }
+]

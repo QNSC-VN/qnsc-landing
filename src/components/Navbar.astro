@@ -1,0 +1,140 @@
+---
+import type { Dictionary, Locale } from '../i18n';
+import { localizedPath } from '../i18n';
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+}
+const { dict, locale } = Astro.props;
+const home = localizedPath(locale, '/');
+---
+
+<nav
+  class="navbar fixed top-0 right-0 left-0 z-50 py-4 transition-[background,padding] duration-300"
+  id="navbar"
+>
+  <div class="mx-auto flex max-w-[1200px] items-center justify-between px-6">
+    <a href={home} class="inline-flex items-center" aria-label="QNSC — Semiconductor home">
+      <img
+        class="h-14 w-auto"
+        src="/assets/brand/qnsc-horizontal-on-dark.svg"
+        alt="QNSC — Semiconductor"
+        width="120"
+        height="42"
+      />
+    </a>
+    <div class="nav-links hidden items-center gap-8 md:flex">
+      <a href={`${home}#services`} class="nav-link">{dict.nav.services}</a>
+      <a href={`${home}#products`} class="nav-link">{dict.nav.products}</a>
+      <a href={localizedPath(locale, '/why-quy-nhon')} class="nav-link">{dict.nav.whyQuyNhon}</a>
+      <a href={`${home}#leadership`} class="nav-link">{dict.nav.leadership}</a>
+      <a href={`${home}#careers`} class="nav-link">{dict.nav.careers}</a>
+      <a href={`${home}#contact`} class="nav-cta">{dict.nav.contact}</a>
+      <a
+        href={locale === 'en'
+          ? localizedPath('vi', Astro.url.pathname)
+          : Astro.url.pathname.replace(/^\/vi/, '') || '/'}
+        class="lang-switch"
+        aria-label="Switch language"
+      >
+        {locale === 'en' ? 'VI' : 'EN'}
+      </a>
+    </div>
+    <button
+      class="nav-toggle md:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav-links"
+    >
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div
+    id="mobile-nav-links"
+    class="mobile-nav-links hidden flex-col gap-1 px-6 pt-4 pb-2 md:hidden"
+  >
+    <a href={`${home}#services`} class="nav-link block py-2">{dict.nav.services}</a>
+    <a href={`${home}#products`} class="nav-link block py-2">{dict.nav.products}</a>
+    <a href={localizedPath(locale, '/why-quy-nhon')} class="nav-link block py-2"
+      >{dict.nav.whyQuyNhon}</a
+    >
+    <a href={`${home}#leadership`} class="nav-link block py-2">{dict.nav.leadership}</a>
+    <a href={`${home}#careers`} class="nav-link block py-2">{dict.nav.careers}</a>
+    <a href={`${home}#contact`} class="nav-cta mt-2 inline-block">{dict.nav.contact}</a>
+  </div>
+</nav>
+
+<style>
+  .navbar.scrolled {
+    background: rgba(10, 22, 40, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(180, 67, 47, 0.1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .nav-link {
+    color: var(--color-titanium);
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    padding: 4px 0;
+  }
+  .nav-link:hover {
+    color: var(--color-silicon-white);
+  }
+  .nav-cta {
+    background: linear-gradient(90deg, var(--color-copper) 0%, var(--color-clay) 100%);
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .lang-switch {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-titanium);
+    border: 1px solid rgba(180, 67, 47, 0.3);
+    border-radius: 999px;
+    padding: 6px 12px;
+  }
+  .lang-switch:hover {
+    color: var(--color-silicon-white);
+    border-color: var(--color-copper);
+  }
+  .mobile-nav-links.open {
+    display: flex;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-silicon-white);
+    margin: 6px 0;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      navbar?.classList.toggle('scrolled', window.scrollY > 50);
+      ticking = false;
+    });
+    ticking = true;
+  });
+
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileLinks = document.getElementById('mobile-nav-links');
+  toggle?.addEventListener('click', () => {
+    const isOpen = mobileLinks?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!isOpen));
+  });
+</script>

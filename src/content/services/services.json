@@ -1,0 +1,65 @@
+[
+  {
+    "id": "microarchitecture",
+    "icon": "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z",
+    "title": "Microarchitecture",
+    "description": "System and chip-level architectural exploration and feasibility. Workload-driven definition of compute, memory, interconnect, and I/O subsystems — defined before implementation begins.",
+    "tags": ["SoC Spec", "Feasibility", "PPA Targeting"]
+  },
+  {
+    "id": "rtl-design",
+    "icon": "M16 18l6-6-6-6M8 6l-6 6 6 6",
+    "title": "RTL Design",
+    "description": "Verilog and SystemVerilog RTL coding, IP integration, and subsystem/SoC assembly. ARM & RISC-V control planes, custom AI/DSP accelerators, memory subsystems (DDR/LPDDR/HBM), and high-speed interconnects (PCIe, USB, MIPI, Ethernet).",
+    "tags": ["SystemVerilog", "ARM", "RISC-V", "SoC Assembly"]
+  },
+  {
+    "id": "verification",
+    "icon": "M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z",
+    "title": "Verification & Validation",
+    "description": "SoC-level UVM verification with closed-loop Metric-Driven Verification (MDV), formal methods, and emulation-friendly flows. Proven first-silicon success across AI, automotive, communications, and storage SoCs.",
+    "tags": ["UVM", "Formal", "MDV", "Emulation"]
+  },
+  {
+    "id": "fpga",
+    "icon": "M2 2h20v20H2zM7 2v20M17 2v20M2 7h20M2 17h20",
+    "title": "FPGA Feasibility & Prototyping",
+    "description": "Feasibility, prototyping, and validation on UltraScale+, Zynq, Virtex, and Kintex platforms. Multi-FPGA architectures, PCIe-based hostless designs, high-speed ADC/DAC (JESD204B/C), Linux and FreeRTOS bring-up.",
+    "tags": ["UltraScale+", "Zynq", "JESD204B/C"]
+  },
+  {
+    "id": "physical-design",
+    "icon": "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z",
+    "title": "Physical Design & Sign-off (RTL2GDSII)",
+    "description": "Full RTL2GDSII ownership at advanced nodes — TSMC 16/12/5nm and Samsung 5/4nm. Synthesis, DFT, P&R, MMMC STA, SI/PI, IR-drop, DRC/LVS, parasitic extraction through GDSII foundry handoff. IP hardening for ARM, RISC-V, LPDDR, and 3rd-party IPs.",
+    "tags": ["4nm", "5nm", "12nm", "DFT", "GDSII"]
+  },
+  {
+    "id": "foundry-transitions",
+    "icon": "M3 3h18v18H3zM8 12h8M12 8v8",
+    "title": "Process & Foundry Transitions",
+    "description": "Porting existing IP and SoC designs to new process nodes or foundries. PDK migration, library re-characterization, flow re-tuning, and PPA recovery on advanced nodes.",
+    "tags": ["TSMC", "Samsung", "PDK Migration"]
+  },
+  {
+    "id": "ip-benchmarking",
+    "icon": "M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7.01l.01-.011",
+    "title": "IP Benchmarking & Hardening",
+    "description": "PPA evaluation and hardening of 3rd-party IPs or internal blocks. Independent comparison of cores, memory controllers, and interconnect IPs — informed selection before SoC integration.",
+    "tags": ["PPA", "Hardening", "IP Selection"]
+  },
+  {
+    "id": "high-speed-pcb",
+    "icon": "M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18",
+    "title": "High-Speed PCB & Embedded",
+    "description": "Complex 12–16 layer PCBs combining RF, digital, and high-speed signaling. Board design, layout, bring-up, and embedded software for chip validation and customer dev kits.",
+    "tags": ["RF + Digital", "High-Speed", "Bring-up"]
+  },
+  {
+    "id": "dedicated-teams",
+    "icon": "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
+    "title": "Dedicated Engineering Teams",
+    "description": "Scale your R&D with managed offshore design centers (ODC). Flexible engagement: project-based, SoW, staff augmentation, or long-term ODC — with secure IP practices and transparent KPIs.",
+    "tags": ["ODC", "SoW", "Staff Aug", "BOT"]
+  }
+]

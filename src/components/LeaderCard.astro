@@ -1,0 +1,156 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  variant: 'leader' | 'lead-advisor' | 'advisor';
+  name: string;
+  nameEn?: string;
+  role: string;
+  photo?: string;
+  initials?: string;
+  bio?: string;
+  bioMission?: string;
+  highlights?: string[];
+  stats?: Array<{ num: string; unit?: string; label: string }>;
+  credLine?: string;
+  featured?: boolean;
+}
+const {
+  variant,
+  name,
+  nameEn,
+  role,
+  photo,
+  initials,
+  bio,
+  bioMission,
+  highlights,
+  stats,
+  credLine,
+  featured,
+} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.jpg', {
+  eager: true,
+});
+const photoSrc = photo ? images[`/src/assets/images/${photo}`]?.default : undefined;
+---
+
+{
+  variant === 'lead-advisor' && (
+    <div class="lead-advisor reveal border-copper/30 from-copper/[0.06] grid gap-8 rounded-2xl border bg-gradient-to-b to-transparent p-8 md:grid-cols-[280px_1fr]">
+      {photoSrc && (
+        <Image
+          src={photoSrc}
+          alt={name}
+          width={280}
+          height={280}
+          class="aspect-square w-full rounded-2xl object-cover"
+          loading="lazy"
+        />
+      )}
+      <div>
+        <span class="text-copper font-mono text-xs tracking-widest uppercase">
+          Executive Board Advisor
+        </span>
+        <h3 class="mt-2 text-2xl font-semibold">
+          {name} {nameEn && <span class="text-titanium text-lg font-normal">({nameEn})</span>}
+        </h3>
+        <div class="text-titanium mt-1">{role}</div>
+        {bio && <p class="text-titanium mt-4 leading-relaxed">{bio}</p>}
+        {bioMission && (
+          <p class="text-silicon-white mt-3 leading-relaxed font-medium">{bioMission}</p>
+        )}
+        {stats && (
+          <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div>
+                <div class="font-mono text-2xl font-semibold tabular-nums">
+                  {s.num}
+                  <span class="text-copper">{s.unit}</span>
+                </div>
+                <div class="text-muted-gray mt-1 text-xs">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+        {credLine && (
+          <div class="text-muted-gray mt-6 border-t border-white/10 pt-4 text-sm leading-relaxed whitespace-pre-line">
+            {credLine}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+{
+  variant === 'leader' && (
+    <div
+      class:list={[
+        'leader-card reveal rounded-2xl border border-white/10 bg-white/[0.02] p-7',
+        featured && 'md:col-span-2',
+      ]}
+    >
+      <div class="flex items-start gap-5">
+        {photoSrc ? (
+          <Image
+            src={photoSrc}
+            alt={name}
+            width={72}
+            height={72}
+            class="flex-shrink-0 rounded-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div class="bg-copper/15 text-copper flex h-[72px] w-[72px] flex-shrink-0 items-center justify-center rounded-full font-semibold">
+            {initials}
+          </div>
+        )}
+        <div class="min-w-0">
+          <h3 class="text-lg font-semibold">{name}</h3>
+          <div class="text-copper mb-3 text-sm">{role}</div>
+          {bio && <p class="text-titanium mb-3 text-sm leading-relaxed">{bio}</p>}
+          {highlights && (
+            <ul class="space-y-1.5">
+              {highlights.map((h) => (
+                <li class="text-muted-gray before:text-copper relative pl-4 text-xs before:absolute before:left-0 before:content-['—']">
+                  {h}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+{
+  variant === 'advisor' && (
+    <div class="advisor-card reveal rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+      {photoSrc && (
+        <Image
+          src={photoSrc}
+          alt={name}
+          width={56}
+          height={56}
+          class="mb-4 rounded-full object-cover"
+          loading="lazy"
+        />
+      )}
+      <h3 class="font-semibold">{name}</h3>
+      <div class="text-copper mb-3 text-sm">{role}</div>
+      {highlights && (
+        <ul class="space-y-1.5">
+          {highlights.map((h) => (
+            <li class="text-muted-gray before:text-copper relative pl-4 text-xs before:absolute before:left-0 before:content-['—']">
+              {h}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}

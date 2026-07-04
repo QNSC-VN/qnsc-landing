@@ -1,0 +1,45 @@
+---
+interface Props {
+  tag: string;
+  tagColor: 'default' | 'teal' | 'gold';
+  featured: boolean;
+  title: string;
+  description: string;
+  specs: Array<{ key: string; value: string }>;
+  market: string;
+}
+const { tag, tagColor, featured, title, description, specs, market } = Astro.props;
+
+const tagClasses: Record<string, string> = {
+  default: 'bg-copper/15 text-clay',
+  teal: 'bg-teal-500/15 text-teal-300',
+  gold: 'bg-amber-500/15 text-amber-300',
+};
+---
+
+<div
+  class:list={[
+    'product-card reveal rounded-2xl border p-7',
+    featured ? 'border-copper/40 bg-copper/[0.04]' : 'border-white/10 bg-white/[0.02]',
+  ]}
+>
+  <span
+    class:list={[
+      'mb-4 inline-block rounded-full px-3 py-1 text-xs font-semibold',
+      tagClasses[tagColor],
+    ]}>{tag}</span
+  >
+  <h3 class="mb-2 text-lg font-semibold">{title}</h3>
+  <p class="text-titanium mb-5 text-[0.95rem] leading-relaxed">{description}</p>
+  <div class="mb-5 space-y-2 border-t border-white/10 pt-4">
+    {
+      specs.map((s) => (
+        <div class="flex justify-between text-sm">
+          <span class="text-muted-gray">{s.key}</span>
+          <span class="text-silicon-white text-right">{s.value}</span>
+        </div>
+      ))
+    }
+  </div>
+  <p class="text-muted-gray text-xs">{market}</p>
+</div>

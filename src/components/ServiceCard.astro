@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+const { icon, title, description, tags } = Astro.props;
+---
+
+<div class="service-card reveal rounded-2xl border border-white/10 bg-white/[0.02] p-7">
+  <div class="bg-copper/10 text-copper mb-4 flex h-11 w-11 items-center justify-center rounded-xl">
+    <Icon path={icon} size={22} />
+  </div>
+  <h3 class="mb-2 text-lg font-semibold">{title}</h3>
+  <p class="text-titanium mb-4 text-[0.95rem] leading-relaxed">{description}</p>
+  <div class="flex flex-wrap gap-2">
+    {
+      tags.map((tag) => (
+        <span class="border-copper/25 bg-copper/5 text-titanium rounded-full border px-3 py-1 text-xs">
+          {tag}
+        </span>
+      ))
+    }
+  </div>
+</div>

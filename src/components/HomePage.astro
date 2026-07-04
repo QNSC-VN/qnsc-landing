@@ -1,0 +1,437 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from './Icon.astro';
+import ParticleCanvas from './ParticleCanvas.astro';
+import ServiceCard from './ServiceCard.astro';
+import ProductCard from './ProductCard.astro';
+import LeaderCard from './LeaderCard.astro';
+import ContactForm from './ContactForm.astro';
+import { icons, trustLogos } from '../lib/homepage.astro';
+import type { Dictionary, Locale } from '../i18n';
+import { localizedPath } from '../i18n';
+
+import quyNhonCity from '../assets/images/quy-nhon-city.png';
+import heroBg from '../assets/bg/hero.png';
+
+interface Props {
+  dict: Dictionary;
+  locale: Locale;
+}
+const { dict, locale } = Astro.props;
+
+const services = await getCollection('services');
+const products = await getCollection('products');
+const leadership = await getCollection('leadership');
+
+const leaders = leadership.filter((l) => l.data.group === 'leadership');
+const leadAdvisor = leadership.find((l) => l.data.group === 'advisor-lead');
+const advisors = leadership.filter((l) => l.data.group === 'advisor');
+---
+
+<BaseLayout
+  dict={dict}
+  locale={locale}
+  path="/"
+  title="QNSC — Quy Nhon Semiconductor | Fabless IC Design Company"
+  description="QNSC – Quy Nhon Semiconductor Company. A Vietnam-based fabless IC design company combining design services with proprietary MCU, IoT, and Smart Card chip products."
+>
+  <!-- HERO -->
+  <section class="hero relative flex min-h-screen items-center overflow-hidden" id="hero">
+    <Image
+      src={heroBg}
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(135deg, rgba(10,22,40,0.72) 0%, rgba(15,35,64,0.65) 40%, rgba(26,26,62,0.70) 100%);"
+    >
+    </div>
+    <ParticleCanvas />
+    <div class="relative z-10 mx-auto max-w-[1200px] px-6 pt-20">
+      <div class="max-w-[720px]">
+        <div class="text-copper mb-4 font-mono text-sm tracking-widest uppercase">
+          {dict.hero.tagline}
+        </div>
+        <h1 class="mb-6 text-[clamp(2.5rem,5vw,4rem)] leading-[1.1] font-bold text-balance">
+          {dict.hero.title1}<br />
+          <span class="gradient-text">{dict.hero.title2}</span>
+        </h1>
+        <p class="text-titanium mb-10 max-w-[560px] text-lg leading-8">{dict.hero.desc}</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#services" class="btn-primary">
+            <Icon path={icons.circleCrosshair} size={18} />
+            {dict.hero.btnExplore}
+          </a>
+          <a href="#products" class="btn-secondary">
+            <Icon path={icons.gridSquare} size={18} />
+            {dict.hero.btnProducts}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="border-y border-white/[0.06] py-14">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="text-muted-gray mb-8 text-center text-xs tracking-[0.2em] uppercase">
+        {dict.trust.label}
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-12 opacity-50">
+        {trustLogos.map((logo) => <span class="font-semibold">{logo}</span>)}
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="py-24" id="services">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="reveal mb-14 max-w-2xl">
+        <span class="section-label">{dict.services.label}</span>
+        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.services.title}</h2>
+        <p class="text-titanium leading-relaxed">{dict.services.desc}</p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          services.map((s) => (
+            <ServiceCard
+              icon={s.data.icon}
+              title={s.data.title}
+              description={s.data.description}
+              tags={s.data.tags}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="bg-white/[0.015] py-24" id="products">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="reveal mb-14 max-w-2xl">
+        <span class="section-label">{dict.products.label}</span>
+        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.products.title}</h2>
+        <p class="text-titanium leading-relaxed">{dict.products.desc}</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        {
+          products.map((p) => (
+            <ProductCard
+              tag={p.data.tag}
+              tagColor={p.data.tagColor}
+              featured={p.data.featured}
+              title={p.data.title}
+              description={p.data.description}
+              specs={p.data.specs}
+              market={p.data.market}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- QUY NHON -->
+  <section class="py-24" id="quy-nhon">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="grid items-center gap-12 md:grid-cols-2">
+        <div class="reveal-left">
+          <Image
+            src={quyNhonCity}
+            alt="Quy Nhon, Vietnam — coastal city with mountains"
+            class="w-full rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+        <div class="reveal-right">
+          <span class="section-label">{dict.location.label}</span>
+          <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">
+            {dict.location.title1}<br /><span class="gradient-text">{dict.location.title2}</span>
+          </h2>
+          <p class="text-titanium mb-4 leading-relaxed">{dict.location.desc}</p>
+          <p class="text-titanium mb-6 leading-relaxed" set:html={dict.location.desc2} />
+          <div class="mb-6 space-y-2">
+            {
+              dict.location.perks.map((perk) => (
+                <div class="flex items-start gap-2 text-sm">
+                  <span class="text-copper mt-0.5">✓</span>
+                  <span class="text-titanium">{perk}</span>
+                </div>
+              ))
+            }
+          </div>
+          <a
+            href={localizedPath(locale, '/why-quy-nhon')}
+            class="text-copper hover:text-clay inline-flex items-center gap-2 font-medium"
+          >
+            {dict.location.articleLink}
+            <Icon path={icons.arrowRight} size={18} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="bg-white/[0.015] py-24" id="leadership">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="reveal mb-14 max-w-2xl">
+        <span class="section-label">{dict.people.label}</span>
+        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.people.title}</h2>
+        <p class="text-titanium leading-relaxed">{dict.people.desc}</p>
+      </div>
+
+      <p class="section-subhead">{dict.people.leadershipSub}</p>
+      <div class="mb-16 grid gap-5 md:grid-cols-2">
+        {
+          leaders.map((l) => (
+            <LeaderCard
+              variant="leader"
+              name={l.data.name}
+              role={l.data.role}
+              photo={l.data.photo}
+              initials={l.data.initials}
+              bio={l.data.bio}
+              highlights={l.data.highlights}
+              featured={l.data.featured}
+            />
+          ))
+        }
+      </div>
+
+      {
+        leadAdvisor && (
+          <>
+            <p class="section-subhead">{dict.people.advisorLeadSub}</p>
+            <div class="mb-16">
+              <LeaderCard
+                variant="lead-advisor"
+                name={leadAdvisor.data.name}
+                nameEn={leadAdvisor.data.nameEn}
+                role={leadAdvisor.data.role}
+                photo={leadAdvisor.data.photo}
+                bio={leadAdvisor.data.bio}
+                bioMission={leadAdvisor.data.bioMission}
+                stats={leadAdvisor.data.stats}
+                credLine={leadAdvisor.data.credLine}
+              />
+            </div>
+          </>
+        )
+      }
+
+      <p class="section-subhead">{dict.people.advisorSub}</p>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          advisors.map((a) => (
+            <LeaderCard
+              variant="advisor"
+              name={a.data.name}
+              role={a.data.role}
+              photo={a.data.photo}
+              highlights={a.data.highlights}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="py-24" id="team">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="reveal mb-14 max-w-2xl">
+        <span class="section-label">{dict.team.label}</span>
+        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.team.title}</h2>
+        <p class="text-titanium leading-relaxed">{dict.team.desc}</p>
+      </div>
+      <div class="reveal grid gap-6 md:grid-cols-2">
+        <div class="track-card rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+          <div class="track-tag">{dict.team.core.tag}</div>
+          <h4 class="mt-4 mb-4 text-xl font-semibold">{dict.team.core.title}</h4>
+          <ul class="space-y-2.5">
+            {
+              dict.team.core.items.map((item) => (
+                <li class="text-titanium before:text-copper relative pl-5 text-sm before:absolute before:left-0 before:content-['—']">
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="track-card rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+          <div class="track-tag teal">{dict.team.ojt.tag}</div>
+          <h4 class="mt-4 mb-4 text-xl font-semibold">{dict.team.ojt.title}</h4>
+          <ul class="space-y-2.5">
+            {
+              dict.team.ojt.items.map((item) => (
+                <li class="text-titanium before:text-copper relative pl-5 text-sm before:absolute before:left-0 before:content-['—']">
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREERS -->
+  <section class="bg-white/[0.015] py-24" id="careers">
+    <div class="reveal mx-auto max-w-[1200px] px-6 text-center">
+      <span class="section-label">{dict.careers.label}</span>
+      <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">
+        {dict.careers.title1}<br /><span class="gradient-text">{dict.careers.title2}</span>
+      </h2>
+      <p class="text-titanium mx-auto mb-12 max-w-2xl leading-relaxed">{dict.careers.desc}</p>
+
+      <div class="mb-10 grid gap-6 text-left md:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+          <div class="track-tag mb-4">{dict.careers.experienced.label}</div>
+          <ul class="space-y-2">
+            {
+              dict.careers.experienced.roles.map((role) => (
+                <li class="text-titanium text-sm">{role}</li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+          <div class="track-tag teal mb-4">{dict.careers.grad.label}</div>
+          <ul class="space-y-2">
+            {dict.careers.grad.roles.map((role) => <li class="text-titanium text-sm">{role}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn-primary inline-flex">
+        <Icon path={icons.users} size={18} />
+        {dict.careers.btn}
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="py-24" id="contact">
+    <div class="mx-auto max-w-[1200px] px-6">
+      <div class="reveal mb-14 max-w-2xl">
+        <span class="section-label">{dict.contact.label}</span>
+        <h2 class="mt-2 mb-4 text-3xl font-semibold text-balance">{dict.contact.title}</h2>
+        <p class="text-titanium leading-relaxed">{dict.contact.desc}</p>
+      </div>
+      <div class="grid gap-12 md:grid-cols-[1fr_1.4fr]">
+        <div class="reveal-left">
+          <h3 class="mb-6 text-lg font-semibold">{dict.contact.info}</h3>
+          <div class="space-y-5">
+            <div class="flex gap-3">
+              <div class="text-copper mt-0.5"><Icon path={icons.map} size={18} /></div>
+              <div>
+                <div class="text-muted-gray text-xs tracking-wide uppercase">
+                  {dict.contact.addrLabel}
+                </div>
+                <div class="text-titanium mt-1 text-sm">{dict.contact.addrValue}</div>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="text-copper mt-0.5"><Icon path={icons.mail} size={18} /></div>
+              <div>
+                <div class="text-muted-gray text-xs tracking-wide uppercase">
+                  {dict.contact.emailLabel}
+                </div>
+                <div class="text-titanium mt-1 text-sm">contact@qnsc.vn</div>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="text-copper mt-0.5"><Icon path={icons.phone} size={18} /></div>
+              <div>
+                <div class="text-muted-gray text-xs tracking-wide uppercase">
+                  {dict.contact.phoneLabel}
+                </div>
+                <div class="text-titanium mt-1 text-sm">{dict.contact.phoneValue}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <ContactForm dict={dict} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .btn-primary {
+    background: linear-gradient(90deg, var(--color-copper) 0%, var(--color-clay) 100%);
+    color: #fff;
+  }
+  .btn-secondary {
+    background: rgba(180, 67, 47, 0.04);
+    border: 1px solid rgba(180, 67, 47, 0.25);
+    color: var(--color-silicon-white);
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-copper);
+  }
+  .section-subhead {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-titanium);
+    margin: 0 0 20px;
+  }
+  .track-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-copper);
+    background: rgba(180, 67, 47, 0.1);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .track-tag.teal {
+    color: #5eead4;
+    background: rgba(94, 234, 212, 0.1);
+  }
+  .text-copper {
+    color: var(--color-copper);
+  }
+  .text-clay {
+    color: var(--color-clay);
+  }
+  .text-titanium {
+    color: var(--color-titanium);
+  }
+  .text-muted-gray {
+    color: var(--color-muted-gray);
+  }
+  .text-silicon-white {
+    color: var(--color-silicon-white);
+  }
+  .bg-copper\/10 {
+    background-color: rgb(180 67 47 / 0.1);
+  }
+</style>
