@@ -66,19 +66,17 @@ const home = localizedPath(locale, '/');
 </nav>
 
 <style>
-  /* Always keep a scrim behind the nav — content scrolls directly underneath
-     it (it's `position: fixed`), so without this, hero/body text bleeds
-     through and overlaps the nav links, unreadable. */
+  /* Solid backdrop at all times — content scrolls directly underneath the
+     nav (it's `position: fixed`), and a gradient/fade isn't tall enough at
+     this nav height to fully block text before it reaches the links. */
   .navbar {
-    background: linear-gradient(
-      to bottom,
-      rgba(10, 22, 40, 0.75) 0%,
-      rgba(10, 22, 40, 0.4) 70%,
-      transparent 100%
-    );
+    background: rgba(10, 22, 40, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(180, 67, 47, 0.06);
   }
   .navbar.scrolled {
-    background: rgba(10, 22, 40, 0.85);
+    background: rgba(10, 22, 40, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(180, 67, 47, 0.1);
