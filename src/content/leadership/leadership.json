@@ -12,8 +12,7 @@
       "Chairman, Young Entrepreneurs Association of Gia Lai Province",
       "Member, Central Committee of the Vietnam Fatherland Front (2024–2029)",
       "BBA, Auckland University of Technology (AUT), New Zealand"
-    ],
-    "featured": true
+    ]
   },
   {
     "id": "quang-le",
@@ -28,8 +27,7 @@
       "PMI Agile Certified Practitioner (PMI-ACP) · Professional Scrum Master I & II",
       "MSc Business Administration (Leadership & Management), Deakin University, Australia",
       "MSc Information System (Data & Analytics), Deakin University"
-    ],
-    "featured": false
+    ]
   },
   {
     "id": "thao-nguyen",
@@ -46,8 +44,7 @@
       { "num": "M", "unit": "+", "label": "Servers Deployed (Open Compute)" },
       { "num": "1985", "label": "IBM VLSI · Career Start" }
     ],
-    "credLine": "Career: IBM (VLSI design) · Facebook/Meta (Open Compute) · NetApp · Equinix · Founder & CEO, TORmem Inc.\nExpertise: PCIe Gen7, RDMA, CXL, AI hardware, ASIC design, memory-disaggregated architectures\nEducation: BSEE, MSEE · CTO Program, Cornell University, USA",
-    "featured": true
+    "credLine": "Career: IBM (VLSI design) · Facebook/Meta (Open Compute) · NetApp · Equinix · Founder & CEO, TORmem Inc.\nExpertise: PCIe Gen7, RDMA, CXL, AI hardware, ASIC design, memory-disaggregated architectures\nEducation: BSEE, MSEE · CTO Program, Cornell University, USA"
   },
   {
     "id": "jafar-safdar",
@@ -61,8 +58,7 @@
       "Led physical design tape-outs at TSMC 5/7nm and Samsung 4/5nm with Intel, Qualcomm, Samsung",
       "Key contributor to Synopsys product line scaling to $400M annual revenue",
       "MSEE, California State University Northridge, USA"
-    ],
-    "featured": false
+    ]
   },
   {
     "id": "afzal-khan",
@@ -75,8 +71,7 @@
       "Deep AI architecture leadership: NPU, GPU, DSP, ISP, secure compute",
       "Chip Lead on advanced AI Vision Processor SoC (ARM & RISC-V control planes)",
       "PhD Computer Architecture & Information Security; BS, MSEE Arizona State University"
-    ],
-    "featured": false
+    ]
   },
   {
     "id": "shahid-rizwan",
@@ -89,8 +84,7 @@
       "SoC-level verification at Arm (AI SoC), Intel (NoC), Ericsson, Bosch, ST, Toshiba",
       "UVM, formal, MDV, PCIe/DDR/HBM, safety-critical & automotive SoCs",
       "MSEE KAIST (Gold Medalist), South Korea"
-    ],
-    "featured": false
+    ]
   },
   {
     "id": "shahid-mustafa",
@@ -104,7 +98,6 @@
       "Secured 45% strategic investment from ANT Financial; scaled business 10× post-deal",
       "Founding CEO, Pakistan Microfinance Investment Company",
       "MBA LUMS · BSEE UET Lahore"
-    ],
-    "featured": false
+    ]
   }
 ]

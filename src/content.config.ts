@@ -43,7 +43,6 @@ const leadership = defineCollection({
       .array(z.object({ num: z.string(), unit: z.string().optional(), label: z.string() }))
       .optional(),
     credLine: z.string().optional(),
-    featured: z.boolean().default(false),
   }),
 });
 
