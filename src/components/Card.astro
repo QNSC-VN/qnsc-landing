@@ -1,0 +1,24 @@
+---
+// Shared card shell — every card on the site (services, products, leadership)
+// is a rounded/bordered panel that differs only in padding and whether it
+// carries the "emphasized" treatment. Change the shape once, here.
+interface Props {
+  padding?: 'sm' | 'md' | 'lg';
+  emphasized?: boolean;
+  class?: string;
+}
+const { padding = 'md', emphasized = false, class: className = '' } = Astro.props;
+
+const paddingClasses = { sm: 'p-6', md: 'p-7', lg: 'p-8' };
+---
+
+<div
+  class:list={[
+    'reveal rounded-2xl border',
+    paddingClasses[padding],
+    emphasized ? 'border-copper/40 bg-copper/[0.04]' : 'border-white/10 bg-white/[0.02]',
+    className,
+  ]}
+>
+  <slot />
+</div>

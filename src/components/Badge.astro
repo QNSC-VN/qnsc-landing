@@ -1,0 +1,21 @@
+---
+// Shared pill/tag shell — service tags, product category tags, and any future
+// status labels all render as the same rounded-full chip, differing only in
+// color scheme.
+interface Props {
+  tone?: 'copper' | 'outline' | 'teal' | 'gold';
+  class?: string;
+}
+const { tone = 'copper', class: className = '' } = Astro.props;
+
+const toneClasses = {
+  copper: 'bg-copper/15 text-clay font-semibold',
+  outline: 'border border-copper/25 bg-copper/5 text-titanium',
+  teal: 'bg-teal-500/15 text-teal-300 font-semibold',
+  gold: 'bg-amber-500/15 text-amber-300 font-semibold',
+};
+---
+
+<span class:list={['inline-block rounded-full px-3 py-1 text-xs', toneClasses[tone], className]}>
+  <slot />
+</span>
