@@ -46,8 +46,9 @@ jobs:
 
   # ─────────────────────────────────────────────────────────────────────────
   # 2. Build — verifies the static output compiles cleanly (Astro + Sharp
-  #    image pipeline + sitemap). Publishes dist/ for the deploy job to reuse
-  #    so it's never rebuilt with different inputs than what was checked here.
+  #    image pipeline + sitemap). This is a correctness check only — Cloudflare
+  #    Pages is GitHub-connected and builds/deploys independently on push, so
+  #    this job's artifact isn't consumed by anything downstream.
   # ─────────────────────────────────────────────────────────────────────────
   build:
     name: Build
@@ -64,17 +65,6 @@ jobs:
 
       - name: Build
         run: pnpm build
-        env:
-          # Placeholder during CI build check — deploy.yml rebuilds with the
-          # real Lambda Function URL baked in for the target environment.
-          PUBLIC_CONTACT_FORM_URL: https://example.invalid/ci-placeholder
-
-      - name: Upload dist artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist-${{ github.sha }}
-          path: dist/
-          retention-days: 3
 
   # ─────────────────────────────────────────────────────────────────────────
   # 3. PR title — enforce Conventional Commits format on PR titles.

@@ -1,6 +1,11 @@
 import type { Dictionary } from './en';
 
 export const vi: Dictionary = {
+  seo: {
+    homeTitle: 'QNSC — Quy Nhon Semiconductor | Công ty thiết kế IC Fabless',
+    homeDescription:
+      'QNSC – Quy Nhon Semiconductor Company. Công ty thiết kế IC fabless tại Việt Nam, kết hợp dịch vụ thiết kế với các sản phẩm chip MCU, IoT và Thẻ thông minh sở hữu trí tuệ riêng.',
+  },
   nav: {
     services: 'Dịch vụ',
     products: 'Sản phẩm',

@@ -107,8 +107,6 @@ jobs:
 
       - name: Build (so CodeQL can analyze compiled output too)
         run: pnpm build
-        env:
-          PUBLIC_CONTACT_FORM_URL: https://example.invalid/ci-placeholder
 
       - name: Perform CodeQL analysis
         continue-on-error: true # requires GitHub Advanced Security (free plan: no-op)

@@ -1,4 +1,9 @@
 export const en = {
+  seo: {
+    homeTitle: 'QNSC — Quy Nhon Semiconductor | Fabless IC Design Company',
+    homeDescription:
+      'QNSC – Quy Nhon Semiconductor Company. A Vietnam-based fabless IC design company combining design services with proprietary MCU, IoT, and Smart Card chip products.',
+  },
   nav: {
     services: 'Services',
     products: 'Products',

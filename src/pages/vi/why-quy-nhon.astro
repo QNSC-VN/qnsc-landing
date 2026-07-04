@@ -1,6 +1,7 @@
 ---
-import ArticlePage from '../../components/ArticlePage.astro';
-import { getDictionary } from '../../i18n';
+// The article body (src/content/articles/why-quy-nhon.md) is English-only —
+// no Vietnamese translation exists yet. Rather than serve English content
+// under a /vi/ URL with vi hreflang (misleading to both readers and search
+// engines), redirect to the English original until a real translation ships.
+return Astro.redirect('/why-quy-nhon', 302);
 ---
-
-<ArticlePage dict={getDictionary('vi')} locale="vi" />

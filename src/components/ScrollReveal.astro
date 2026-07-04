@@ -14,6 +14,13 @@
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
     );
     reveals.forEach((el) => observer.observe(el));
+
+    // Safety net: if IntersectionObserver never fires for an element (blocked
+    // script, extension interference, browser quirk), don't leave content
+    // permanently invisible — force it visible after a short grace period.
+    window.setTimeout(() => {
+      reveals.forEach((el) => el.classList.add('visible'));
+    }, 2000);
   }
 </script>
 
@@ -43,4 +50,19 @@
       transform: translate(0, 0);
     }
   }
+
+  /* JS-disabled fallback — never ship content that only appears via script. */
+  html.no-js .reveal,
+  html.no-js .reveal-left,
+  html.no-js .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 </style>
+
+<script is:inline>
+  // Runs synchronously before paint; flips to js-enabled once the module
+  // script above is guaranteed to run. If JS is disabled entirely, this
+  // never executes and html.no-js (set server-side below) stays in effect.
+  document.documentElement.classList.remove('no-js');
+</script>

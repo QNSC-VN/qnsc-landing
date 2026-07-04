@@ -28,6 +28,7 @@ const { Content } = await render(article);
   description={article.data.description}
   ogImage={`/assets/article/${article.data.heroImage}`}
   ogType="article"
+  hasVietnamese={false}
 >
   <header class="relative">
     <Image
@@ -41,10 +42,10 @@ const { Content } = await render(article);
     <div class="relative z-10 mx-auto max-w-[900px] px-6 pt-32 pb-20">
       <a
         href={localizedPath(locale, '/')}
-        class="text-titanium hover:text-silicon-white mb-8 inline-flex items-center gap-2 text-sm"
+        class="text-titanium hover:text-silicon-white mb-8 flex w-fit items-center gap-2 text-sm"
         >← Back to home</a
       >
-      <span class="section-label">A Letter from Our Executive Board Advisor</span>
+      <span class="section-label mb-3 block">A Letter from Our Executive Board Advisor</span>
       <h1 class="mt-3 mb-4 text-4xl font-bold text-balance md:text-5xl">{article.data.title}</h1>
       <p class="text-titanium mb-6 text-lg">
         Building the future of semiconductor innovation from the heart of Vietnam
