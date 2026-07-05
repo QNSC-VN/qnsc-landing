@@ -52,7 +52,6 @@ src/
 └─ styles/         # Tailwind v4 tokens (global.css)
 
 functions/         # Cloudflare Pages Functions — api/contact.ts (form submit handler)
-_legacy/           # Pre-Astro hand-authored HTML/CSS/JS — kept for reference, not built
 ```
 
 ## i18n
