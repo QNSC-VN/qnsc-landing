@@ -2,7 +2,7 @@
 title: 'Why Quy Nhơn? Why Vietnam?'
 description: 'A letter from Thao Nguyen, Executive Board Advisor of QNSC, on why world-class semiconductor innovation can grow from Quy Nhơn, Vietnam.'
 author: 'Thao Nguyen'
-authorRole: 'Executive Board Advisor, QNSC · Silicon Valley, California · May 2026'
+authorRole: 'Executive Board Advisor, QNSC · Silicon Valley, California, May 2026'
 publishedAt: 2026-05-01
 heroImage: 'quy-nhon-coast.jpg'
 ---
@@ -24,9 +24,9 @@ We believe Vietnam can become an important part of the global semiconductor supp
 
 Quy Nhơn, my hometown on Vietnam's beautiful central coast, has recently become part of the newly expanded Gia Lai Province under Vietnam's administrative reorganization. While the governance structure has changed, the spirit, culture, and memories of Quy Nhơn remain deeply rooted in who we are.
 
-For me personally, Quy Nhơn is more than a former city name. It is my hometown — the place where I grew up, learned life's early lessons, and graduated from Trung Vương High School in 1979.
+For me personally, Quy Nhơn is more than a former city name. It is my hometown, the place where I grew up, learned life's early lessons, and graduated from Trung Vương High School in 1979.
 
-Life later took me across the world, into the semiconductor and high-tech industry in the United States. Over the past four decades, I have been fortunate to work in advanced hardware engineering, semiconductor technology, large-scale infrastructure systems, AI platforms, and global manufacturing ecosystems — IBM, NetApp, Facebook/Meta, and TORmem.
+Life later took me across the world, into the semiconductor and high-tech industry in the United States. Over the past four decades, I have been fortunate to work in advanced hardware engineering, semiconductor technology, large-scale infrastructure systems, AI platforms, and global manufacturing ecosystems: IBM, NetApp, Facebook/Meta, and TORmem.
 
 But no matter where life goes, your roots remain important. Establishing QNSC in Quy Nhơn, Gia Lai Province is to help create opportunities for the next generation of Vietnamese engineers and innovators.
 
@@ -90,4 +90,4 @@ Because great things can come from peaceful places.
 **Why Vietnam?**
 Because the next generation of Vietnamese engineers deserves the opportunity to help shape the future of global technology.
 
-— Thao Nguyen
+- Thao Nguyen

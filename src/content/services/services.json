@@ -3,7 +3,7 @@
     "id": "microarchitecture",
     "icon": "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z",
     "title": "Microarchitecture",
-    "description": "System and chip-level architectural exploration and feasibility. Workload-driven definition of compute, memory, interconnect, and I/O subsystems — defined before implementation begins.",
+    "description": "System and chip-level architectural exploration and feasibility. Workload-driven definition of compute, memory, interconnect, and I/O subsystems, defined before implementation begins.",
     "tags": ["SoC Spec", "Feasibility", "PPA Targeting"]
   },
   {
@@ -33,7 +33,7 @@
     "id": "physical-design",
     "icon": "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z",
     "title": "Physical Design & Sign-off (RTL2GDSII)",
-    "description": "Full RTL2GDSII ownership at advanced nodes — TSMC 16/12/5nm and Samsung 5/4nm. Synthesis, DFT, P&R, MMMC STA, SI/PI, IR-drop, DRC/LVS, parasitic extraction through GDSII foundry handoff. IP hardening for ARM, RISC-V, LPDDR, and 3rd-party IPs.",
+    "description": "Full RTL2GDSII ownership at advanced nodes: TSMC 16/12/5nm and Samsung 5/4nm. Synthesis, DFT, P&R, MMMC STA, SI/PI, IR-drop, DRC/LVS, parasitic extraction through GDSII foundry handoff. IP hardening for ARM, RISC-V, LPDDR, and 3rd-party IPs.",
     "tags": ["4nm", "5nm", "12nm", "DFT", "GDSII"],
     "core": true
   },
@@ -48,21 +48,21 @@
     "id": "ip-benchmarking",
     "icon": "M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7.01l.01-.011",
     "title": "IP Benchmarking & Hardening",
-    "description": "PPA evaluation and hardening of 3rd-party IPs or internal blocks. Independent comparison of cores, memory controllers, and interconnect IPs — informed selection before SoC integration.",
+    "description": "PPA evaluation and hardening of 3rd-party IPs or internal blocks. Independent comparison of cores, memory controllers, and interconnect IPs, informed selection before SoC integration.",
     "tags": ["PPA", "Hardening", "IP Selection"]
   },
   {
     "id": "high-speed-pcb",
     "icon": "M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18",
     "title": "High-Speed PCB & Embedded",
-    "description": "Complex 12–16 layer PCBs combining RF, digital, and high-speed signaling. Board design, layout, bring-up, and embedded software for chip validation and customer dev kits.",
+    "description": "Complex 12-16 layer PCBs combining RF, digital, and high-speed signaling. Board design, layout, bring-up, and embedded software for chip validation and customer dev kits.",
     "tags": ["RF + Digital", "High-Speed", "Bring-up"]
   },
   {
     "id": "dedicated-teams",
     "icon": "M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
     "title": "Dedicated Engineering Teams",
-    "description": "Scale your R&D with managed offshore design centers (ODC). Flexible engagement: project-based, SoW, staff augmentation, or long-term ODC — with secure IP practices and transparent KPIs.",
+    "description": "Scale your R&D with managed offshore design centers (ODC). Flexible engagement: project-based, SoW, staff augmentation, or long-term ODC, with secure IP practices and transparent KPIs.",
     "tags": ["ODC", "SoW", "Staff Aug", "BOT"]
   }
 ]

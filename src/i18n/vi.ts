@@ -2,9 +2,9 @@ import type { Dictionary } from './en';
 
 export const vi: Dictionary = {
   seo: {
-    homeTitle: 'QNSC — Quy Nhon Semiconductor | Công ty thiết kế IC Fabless',
+    homeTitle: 'QNSC - Quy Nhon Semiconductor | Công ty thiết kế IC Fabless',
     homeDescription:
-      'QNSC – Quy Nhon Semiconductor Company. Công ty thiết kế IC fabless tại Việt Nam, kết hợp dịch vụ thiết kế với các sản phẩm chip MCU, IoT và Thẻ thông minh sở hữu trí tuệ riêng.',
+      'QNSC, Quy Nhon Semiconductor Company. Công ty thiết kế IC fabless tại Việt Nam, kết hợp dịch vụ thiết kế với các sản phẩm chip MCU, IoT và Thẻ thông minh sở hữu trí tuệ riêng.',
   },
   nav: {
     services: 'Dịch vụ',
@@ -26,7 +26,7 @@ export const vi: Dictionary = {
   services: {
     label: 'Nhóm A · Dịch vụ thiết kế',
     title: 'Năng lực thiết kế IC toàn trình',
-    desc: 'Gia công thiết kế IC front-end đến back-end cho khách hàng fabless quốc tế. Sở hữu toàn trình từ Đặc tả → Kiến trúc → RTL → Kiểm chứng → FPGA → GDSII → Bring-up → Hệ thống, dẫn dắt bởi các kiến trúc sư silicon cấp cao với 25–30+ năm kinh nghiệm tại các tập đoàn bán dẫn hàng đầu thế giới. Các lĩnh vực trọng tâm gồm hạ tầng AI và điện toán hiệu năng cao, được hậu thuẫn bởi hàng chục năm kinh nghiệm kỹ thuật toàn cầu, thúc đẩy chuyển giao công nghệ thực chất vào Việt Nam.',
+    desc: 'Gia công thiết kế IC front-end đến back-end cho khách hàng fabless quốc tế. Sở hữu toàn trình từ Đặc tả → Kiến trúc → RTL → Kiểm chứng → FPGA → GDSII → Bring-up → Hệ thống, dẫn dắt bởi các kiến trúc sư silicon cấp cao với 25-30+ năm kinh nghiệm tại các tập đoàn bán dẫn hàng đầu thế giới. Các lĩnh vực trọng tâm gồm hạ tầng AI và điện toán hiệu năng cao, được hậu thuẫn bởi hàng chục năm kinh nghiệm kỹ thuật toàn cầu, thúc đẩy chuyển giao công nghệ thực chất vào Việt Nam.',
   },
   products: {
     label: 'Nhóm B',
@@ -37,25 +37,25 @@ export const vi: Dictionary = {
     label: 'Lợi thế Quy Nhơn',
     title1: 'Thành phố bán dẫn',
     title2: 'đang trỗi dậy của Việt Nam',
-    desc: 'Quy Nhơn là trung tâm hành chính của tỉnh Gia Lai mới (sau sáp nhập tỉnh 2025) — một đô thị ven biển với các trường đại học kỹ thuật mạnh, sự hỗ trợ tích cực của chính quyền tỉnh cho ngành bán dẫn, và chất lượng sống vượt trội cho kỹ sư.',
+    desc: 'Quy Nhơn là trung tâm hành chính của tỉnh Gia Lai mới (sau sáp nhập tỉnh 2025), một đô thị ven biển với các trường đại học kỹ thuật mạnh, sự hỗ trợ tích cực của chính quyền tỉnh cho ngành bán dẫn, và chất lượng sống vượt trội cho kỹ sư.',
     desc2:
-      'QNSC được xây dựng trên quan hệ hợp tác trực tiếp với <strong>Đại học Quy Nhơn (QNU)</strong> — một trong số ít trường đại học Việt Nam có chương trình đào tạo bán dẫn chính thức — đảm bảo nguồn kỹ sư trẻ được đào tạo bài bản, liên tục bổ sung cho đội OJT và kế hoạch mở rộng dài hạn.',
+      'QNSC được xây dựng trên quan hệ hợp tác trực tiếp với <strong>Đại học Quy Nhơn (QNU)</strong>, một trong số ít trường đại học Việt Nam có chương trình đào tạo bán dẫn chính thức, đảm bảo nguồn kỹ sư trẻ được đào tạo bài bản, liên tục bổ sung cho đội OJT và kế hoạch mở rộng dài hạn.',
     perks: [
       'Sự hỗ trợ tích cực từ chính quyền tỉnh Gia Lai',
       'Hợp tác chiến lược với Đại học Quy Nhơn (QNU)',
-      'Chương trình đào tạo bán dẫn chính thức — hiếm có tại Việt Nam',
+      'Chương trình đào tạo bán dẫn chính thức, hiếm có tại Việt Nam',
       'Nguồn kỹ sư trẻ được đảm bảo',
       'Một mắt xích trong chiến lược bán dẫn quốc gia của Việt Nam',
       'Chi phí vận hành thấp hơn · tỷ lệ giữ chân kỹ sư cao',
       'Đời sống ven biển · bay thẳng đến Hà Nội & TP.HCM',
     ],
     articleLink:
-      'Đọc "Vì sao Quy Nhơn? Vì sao Việt Nam?" — bức thư từ Cố vấn Hội đồng Điều hành của chúng tôi',
+      'Đọc "Vì sao Quy Nhơn? Vì sao Việt Nam?", bức thư từ Cố vấn Hội đồng Điều hành của chúng tôi',
   },
   people: {
     label: 'Ban lãnh đạo & Cố vấn',
     title: 'Được xây dựng bởi những người đi trước trong ngành',
-    desc: 'QNSC được dẫn dắt bởi những nhà sáng lập người Việt giàu kinh nghiệm khởi nghiệp và kỹ thuật, cùng sự đồng hành của một Cố vấn Hội đồng Điều hành và các Cố vấn Chiến lược với 25–40+ năm kinh nghiệm lãnh đạo tại các tập đoàn bán dẫn và hạ tầng AI toàn cầu — IBM, Meta, Intel, Samsung, TSMC, Arm, Synopsys, Qualcomm, Bosch, Ericsson.',
+    desc: 'QNSC được dẫn dắt bởi những nhà sáng lập người Việt giàu kinh nghiệm khởi nghiệp và kỹ thuật, cùng sự đồng hành của một Cố vấn Hội đồng Điều hành và các Cố vấn Chiến lược với 25-40+ năm kinh nghiệm lãnh đạo tại các tập đoàn bán dẫn và hạ tầng AI toàn cầu: IBM, Meta, Intel, Samsung, TSMC, Arm, Synopsys, Qualcomm, Bosch, Ericsson.',
     leadershipSub: 'Ban lãnh đạo',
     advisorLeadSub: 'Cố vấn Hội đồng Điều hành',
     advisorSub: 'Cố vấn Chiến lược & Chuyên gia',
@@ -63,13 +63,13 @@ export const vi: Dictionary = {
   team: {
     label: 'Đội ngũ',
     title: 'Hai hướng đào tạo. Một đội ngũ.',
-    desc: 'QNSC xây dựng đội ngũ theo hai hướng bổ trợ lẫn nhau — kỹ sư giàu kinh nghiệm triển khai ngay từ ngày đầu, và đội ngũ trẻ tại Quy Nhơn được đào tạo bởi các chuyên gia silicon cấp cao. Đây chính là động cơ mở rộng quy mô dài hạn của ngành thiết kế chip Việt Nam.',
+    desc: 'QNSC xây dựng đội ngũ theo hai hướng bổ trợ lẫn nhau: kỹ sư giàu kinh nghiệm triển khai ngay từ ngày đầu, và đội ngũ trẻ tại Quy Nhơn được đào tạo bởi các chuyên gia silicon cấp cao. Đây chính là động cơ mở rộng quy mô dài hạn của ngành thiết kế chip Việt Nam.',
     core: {
       tag: 'Đội ngũ nòng cốt',
       title: 'Đội ngũ kỹ sư cấp cao',
       items: [
         'Đội ngũ 15 kỹ sư cấp cao dẫn dắt triển khai',
-        '3–5+ năm kinh nghiệm thực chiến trên silicon sản xuất',
+        '3-5+ năm kinh nghiệm thực chiến trên silicon sản xuất',
         'Tuyển dụng trực tiếp từ các công ty bán dẫn uy tín',
         'Bao phủ toàn trình: RTL · Kiểm chứng · Thiết kế vật lý · DFT',
       ],
@@ -81,7 +81,7 @@ export const vi: Dictionary = {
         'Sinh viên mới tốt nghiệp từ Đại học Quy Nhơn và các chương trình đối tác',
         'Được đào tạo trên các dự án thiết kế chip RISC-V, Arm, AMBA thực tế',
         'Chương trình đào tạo chuyên sâu 6 tháng dẫn dắt bởi chuyên gia silicon cấp cao',
-        'Kỹ sư sẵn sàng sản xuất — động cơ mở rộng dài hạn của QNSC',
+        'Kỹ sư sẵn sàng sản xuất, động cơ mở rộng dài hạn của QNSC',
       ],
     },
   },
@@ -89,11 +89,11 @@ export const vi: Dictionary = {
     label: 'Gia nhập đội ngũ',
     title1: 'Xây dựng tương lai',
     title2: 'ngành bán dẫn Việt Nam',
-    desc: 'Chúng tôi tuyển dụng trên cả hai hướng — kỹ sư giàu kinh nghiệm sẵn sàng triển khai ngay, và sinh viên mới tốt nghiệp sẵn sàng học hỏi qua chương trình OJT dẫn dắt bởi chuyên gia silicon.',
+    desc: 'Chúng tôi tuyển dụng trên cả hai hướng: kỹ sư giàu kinh nghiệm sẵn sàng triển khai ngay, và sinh viên mới tốt nghiệp sẵn sàng học hỏi qua chương trình OJT dẫn dắt bởi chuyên gia silicon.',
     experienced: {
       label: 'Dành cho kỹ sư giàu kinh nghiệm',
       roles: [
-        'Kỹ sư thiết kế RTL (3–5 năm)',
+        'Kỹ sư thiết kế RTL (3-5 năm)',
         'Kỹ sư kiểm chứng (UVM / Formal)',
         'Kỹ sư thiết kế vật lý (PnR / Sign-off)',
         'Kỹ sư DFT',
@@ -102,7 +102,7 @@ export const vi: Dictionary = {
     grad: {
       label: 'Dành cho sinh viên mới tốt nghiệp · Chương trình OJT',
       roles: [
-        'Thực tập sinh thiết kế IC — Quy Nhơn',
+        'Thực tập sinh thiết kế IC, Quy Nhơn',
         'Chương trình đào tạo 6 tháng dẫn dắt bởi chuyên gia silicon',
         'Sinh sống và làm việc tại Quy Nhơn',
         'Lộ trình trở thành kỹ sư chính thức',
@@ -142,14 +142,14 @@ export const vi: Dictionary = {
       submit: 'Gửi tin nhắn',
       sending: 'Đang gửi...',
       sent: 'Đã gửi thành công!',
-      error: 'Gửi không thành công — vui lòng thử lại hoặc email trực tiếp cho chúng tôi.',
+      error: 'Gửi không thành công. Vui lòng thử lại hoặc email trực tiếp cho chúng tôi.',
     },
   },
   footer: {
-    desc: 'QNSC – Quy Nhon Semiconductor Company. Công ty thiết kế IC fabless kết hợp dịch vụ thiết kế với sản phẩm chip sở hữu trí tuệ riêng, trụ sở tại Quy Nhơn, Việt Nam.',
+    desc: 'QNSC, Quy Nhon Semiconductor Company. Công ty thiết kế IC fabless kết hợp dịch vụ thiết kế với sản phẩm chip sở hữu trí tuệ riêng, trụ sở tại Quy Nhơn, Việt Nam.',
     servicesHeading: 'Dịch vụ',
     companyHeading: 'Công ty',
     connectHeading: 'Kết nối',
-    copyright: '© 2026 QNSC — Quy Nhon Semiconductor. Bảo lưu mọi quyền.',
+    copyright: '© 2026 QNSC, Quy Nhon Semiconductor. Bảo lưu mọi quyền.',
   },
 };
