@@ -1,11 +1,12 @@
 # =============================================================================
-# Security — secret scan + SAST + dependency review
+# Security — thin caller of the shared reusable suite (qnsc-ci).
 #
-# Runs on every PR and every push to main, plus a weekly scheduled run to
-# catch newly disclosed CVEs even without a code push.
-#
-# Kept separate from ci.yml so it can be independently re-run, disabled, or
-# required by branch protection without coupling to the build gate.
+# qnsc-landing is Cloudflare-native (Astro static + one Pages Function, no
+# Dockerfile), so it calls the shared workflow with `scan_container: false`:
+# the Trivy container-CVE job is skipped while Semgrep (SAST, replaces CodeQL),
+# Gitleaks (secrets, MIT CLI) and osv-scanner (dependency CVEs, replaces
+# dependency-review) still run source-based. This gives the same security gate
+# as the rally/opshub products, so posture is uniform across the org.
 # =============================================================================
 name: Security
 
@@ -17,99 +18,15 @@ on:
   schedule:
     - cron: '0 4 * * 1' # weekly Monday 04:00 UTC — catch new CVEs between pushes
 
-concurrency:
-  group: security-${{ github.ref }}
-  cancel-in-progress: true
-
 permissions:
   contents: read
-
-env:
-  NODE_VERSION: '22'
-  PNPM_VERSION: '10.33.2'
+  security-events: write # SARIF upload (no-op on the free plan, lights up after GHAS)
 
 jobs:
-  # ─────────────────────────────────────────────────────────────────────────
-  # 0. Gitleaks — scan repo history for committed secrets.
-  #    Uses the CLI directly (not the qnsc-ci scan-secrets composite, which
-  #    wraps gitleaks-action): the CLI binary is MIT-licensed for org repos,
-  #    the composite's gitleaks-action wrapper requires a paid licence.
-  # ─────────────────────────────────────────────────────────────────────────
-  secrets:
-    name: Secret scan (Gitleaks)
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install Gitleaks
-        env:
-          GITLEAKS_VERSION: '8.21.2'
-        run: |
-          curl -sSfL \
-            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
-            | tar -xz -C /usr/local/bin gitleaks
-          gitleaks version
-
-      - name: Scan git history for secrets
-        run: gitleaks detect --source . --log-opts="--all" --no-banner --exit-code 1
-
-  dependency-review:
-    name: Dependency review
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
-      pull-requests: read
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Review dependency changes
-        uses: actions/dependency-review-action@v4
-        with:
-          fail-on-severity: critical
-
-  # ─────────────────────────────────────────────────────────────────────────
-  # 1. CodeQL — static analysis (SAST) of Astro components and TS source
-  #    (i18n dictionaries, Lambda handler, config). Static site has no server
-  #    runtime, so Trivy container scanning (used by rally/opshub) doesn't
-  #    apply here — this is the equivalent gate for a no-Docker deploy.
-  # ─────────────────────────────────────────────────────────────────────────
-  codeql:
-    name: CodeQL SAST
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      security-events: write
-      actions: read
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Initialise CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript-typescript
-          queries: security-and-quality
-
-      - uses: QNSC-VN/qnsc-ci/actions/setup-node-pnpm@v1.4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          pnpm-version: ${{ env.PNPM_VERSION }}
-
-      - name: Build (so CodeQL can analyze compiled output too)
-        run: pnpm build
-
-      - name: Perform CodeQL analysis
-        continue-on-error: true # requires GitHub Advanced Security (free plan: no-op)
-        uses: github/codeql-action/analyze@v3
-        with:
-          category: codeql-typescript
+  security:
+    uses: QNSC-VN/qnsc-ci/.github/workflows/security.yml@v1
+    with:
+      product: qnsc-landing
+      scan_container: false # no Dockerfile — skip Trivy, keep Semgrep + Gitleaks + osv
+      node_version: '22'
+    secrets: inherit
