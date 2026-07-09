@@ -23,19 +23,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  release-please:
-    name: Release Please
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/create-github-app-token@v1
-        id: app-token
-        continue-on-error: true
-        with:
-          app-id: ${{ vars.RELEASE_BOT_APP_ID }}
-          private-key: ${{ secrets.RELEASE_BOT_PRIVATE_KEY }}
-
-      - uses: googleapis/release-please-action@v4
-        with:
-          token: ${{ steps.app-token.outputs.token || github.token }}
-          config-file: release-please-config.json
+  # Delegate to the shared reusable so pinning/behaviour stays in one place
+  # (QNSC-VN/qnsc-ci). config_file defaults to release-please-config.json.
+  release:
+    uses: QNSC-VN/qnsc-ci/.github/workflows/release-please.yml@v1
+    secrets: inherit
