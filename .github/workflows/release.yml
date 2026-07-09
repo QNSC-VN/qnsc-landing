@@ -25,6 +25,7 @@ permissions:
 jobs:
   # Delegate to the shared reusable so pinning/behaviour stays in one place
   # (QNSC-VN/qnsc-ci). config_file defaults to release-please-config.json.
+  # No secrets passed: this repo has no RELEASE_BOT_PRIVATE_KEY, so the reusable
+  # falls back to github.token (avoids `secrets: inherit` least-privilege risk).
   release:
     uses: QNSC-VN/qnsc-ci/.github/workflows/release-please.yml@v1
-    secrets: inherit
