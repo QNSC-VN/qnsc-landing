@@ -8,7 +8,7 @@
 # dependency-review) still run source-based. This gives the same security gate
 # as the rally/opshub products, so posture is uniform across the org.
 # =============================================================================
-name: Security
+name: Security · Scan
 
 on:
   push:
