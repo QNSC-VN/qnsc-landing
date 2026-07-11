@@ -8,7 +8,7 @@
 #
 # Requires: RELEASE_BOT_APP_ID (org var) + RELEASE_BOT_PRIVATE_KEY (org secret).
 # =============================================================================
-name: Create Release
+name: Release
 
 on:
   push:
