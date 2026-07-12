@@ -46,9 +46,9 @@ jobs:
 
   # ─────────────────────────────────────────────────────────────────────────
   # 2. Build — verifies the static output compiles cleanly (Astro + Sharp
-  #    image pipeline + sitemap). This is a correctness check only — Cloudflare
-  #    Pages is GitHub-connected and builds/deploys independently on push, so
-  #    this job's artifact isn't consumed by anything downstream.
+  #    image pipeline + sitemap). Correctness check only: the real deploy build
+  #    runs in web-deploy.yml (shared reusable), so this job's artifact isn't
+  #    consumed by anything downstream.
   # ─────────────────────────────────────────────────────────────────────────
   build:
     name: Build

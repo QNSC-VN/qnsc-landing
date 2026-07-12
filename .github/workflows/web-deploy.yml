@@ -5,13 +5,11 @@
 # the shared workflow (build runs in CI, not Cloudflare's builder). No release
 # tag needed. No approval gate (public marketing site).
 #
-# PREREQUISITE: disable Cloudflare's GitHub auto-build for this Pages project
-# so it doesn't double-deploy. Requires repo secrets CLOUDFLARE_API_TOKEN +
-# CLOUDFLARE_ACCOUNT_ID and env var PAGES_PROJECT (+ optional APP_URL).
-#
-# NOTE: optional migration. Staying on Cloudflare GitHub auto-build is also fine
-# for a brochure (free per-PR previews). Adopt this only for build provenance +
-# one control plane / secrets store.
+# PREREQUISITE: disable Cloudflare's GitHub auto-build for this Pages project so
+# CI is the single source of deploys (no double-deploy). Cloudflare creds come
+# from ORG secrets CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID; the Pages
+# project name from the PAGES_PROJECT var (+ optional APP_URL for the
+# post-deploy health check).
 # =============================================================================
 name: Web · Deploy
 
@@ -31,4 +29,8 @@ jobs:
       build_command: pnpm build
       web_dist_path: dist
       single_environment: production
-    secrets: inherit
+    # Least-privilege: pass only what the reusable declares (no `secrets: inherit`).
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      SLACK_DEPLOY_WEBHOOK: ${{ secrets.SLACK_DEPLOY_WEBHOOK }}
