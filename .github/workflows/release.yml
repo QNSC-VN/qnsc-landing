@@ -3,7 +3,7 @@
 # main push, then auto-tags when that PR is merged.
 #
 # Unlike rally/opshub, merging the release PR here does not gate a deploy —
-# deploy.yml already runs on every push to main. This workflow exists purely
+# web-deploy.yml already runs on every push to main. This workflow exists purely
 # for changelog + semver bookkeeping on a site that ships continuously.
 #
 # Requires: RELEASE_BOT_APP_ID (org var) + RELEASE_BOT_PRIVATE_KEY (org secret).
