@@ -28,4 +28,4 @@ jobs:
   # No secrets passed: this repo has no RELEASE_BOT_PRIVATE_KEY, so the reusable
   # falls back to github.token (avoids `secrets: inherit` least-privilege risk).
   release:
-    uses: QNSC-VN/qnsc-ci/.github/workflows/release-please.yml@v1
+    uses: QNSC-VN/qnsc-ci/.github/workflows/release-please.yml@v1.4.0
