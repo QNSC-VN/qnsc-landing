@@ -68,7 +68,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   // configured, so the form keeps working before the widget is provisioned.
   // CORS does not stop server-side abuse (curl); this is the real gate.
   if (env.TURNSTILE_SECRET) {
-    const token = typeof body['cf-turnstile-response'] === 'string' ? body['cf-turnstile-response'] : '';
+    const token =
+      typeof body['cf-turnstile-response'] === 'string' ? body['cf-turnstile-response'] : '';
     const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

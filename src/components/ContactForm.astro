@@ -10,7 +10,10 @@ const f = dict.contact.form;
 // Public Turnstile sitekey — baked at build time. When unset the widget is
 // omitted and the server skips verification (honeypot still active), so the
 // form works before Turnstile is provisioned.
-const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY;
+// Public Turnstile sitekey for the qnsc-landing widget (provisioned in
+// qnsc-infra/edge). Public by design — it renders in the page HTML. An env
+// override is honored if a build ever injects PUBLIC_TURNSTILE_SITEKEY.
+const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY ?? '0x4AAAAAAD4jcjvqYkpLaPEV';
 ---
 
 <form class="contact-form reveal space-y-5" id="contact-form" data-endpoint="/api/contact">
@@ -53,9 +56,15 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY;
     <label for="website">Website</label>
     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
   </div>
-  {/* Turnstile — rendered only when a sitekey is configured. Injects a hidden
-      `cf-turnstile-response` input the form submit serializes automatically. */}
-  {turnstileSitekey && <div class="cf-turnstile" data-sitekey={turnstileSitekey} data-theme="dark"></div>}
+  {
+    /* Turnstile — rendered only when a sitekey is configured. Injects a hidden
+      `cf-turnstile-response` input the form submit serializes automatically. */
+  }
+  {
+    turnstileSitekey && (
+      <div class="cf-turnstile" data-sitekey={turnstileSitekey} data-theme="dark" />
+    )
+  }
   <p class="form-status hidden text-sm" role="status" aria-live="polite"></p>
   <button type="submit" class="submit-btn w-full justify-center">
     <span id="submit-btn-text">{f.submit}</span>
@@ -115,9 +124,11 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY;
   }
 </style>
 
-{turnstileSitekey && (
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
-)}
+{
+  turnstileSitekey && (
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline />
+  )
+}
 
 <script
   is:inline
