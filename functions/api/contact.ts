@@ -7,9 +7,10 @@
 
 interface Env {
   RESEND_API_KEY: string;
-  CONTACT_FROM_EMAIL: string; // e.g. no-reply@qnsc.vn (must be a Resend-verified domain)
-  CONTACT_TO_EMAIL: string; // e.g. contact@qnsc.vn
+  CONTACT_FROM_EMAIL: string; // e.g. no-reply@mail.qnsc.vn (Resend-verified subdomain, keeps root SPF clean for M365)
+  CONTACT_TO_EMAIL: string; // e.g. contact@qnsc.vn (the M365 mailbox)
   ALLOWED_ORIGIN: string; // e.g. https://qnsc.vn
+  TURNSTILE_SECRET?: string; // Cloudflare Turnstile secret — bot check is skipped while unset (staged rollout)
 }
 
 const MAX_FIELD_LEN = 2000;
@@ -55,6 +56,32 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     body = await request.json();
   } catch {
     return Response.json({ error: 'invalid_json' }, { status: 400, headers });
+  }
+
+  // Honeypot — a hidden field real users never see. If filled, it's a bot:
+  // return 200 (so the bot doesn't learn it was caught) but drop the message.
+  if (typeof body.website === 'string' && body.website.trim() !== '') {
+    return Response.json({ ok: true }, { status: 200, headers });
+  }
+
+  // Turnstile — Cloudflare's bot challenge. Verified only when the secret is
+  // configured, so the form keeps working before the widget is provisioned.
+  // CORS does not stop server-side abuse (curl); this is the real gate.
+  if (env.TURNSTILE_SECRET) {
+    const token = typeof body['cf-turnstile-response'] === 'string' ? body['cf-turnstile-response'] : '';
+    const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: env.TURNSTILE_SECRET,
+        response: token,
+        remoteip: request.headers.get('CF-Connecting-IP') ?? '',
+      }),
+    });
+    const outcome = (await verify.json()) as { success: boolean };
+    if (!outcome.success) {
+      return Response.json({ error: 'captcha_failed' }, { status: 403, headers });
+    }
   }
 
   const { name, email, company = '', service = '', message = '' } = body;
